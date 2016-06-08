@@ -1,0 +1,1 @@
+"./main.obj" "./startup_msp432p401r_ccs.obj" "./system_msp432p401r.obj" "./protocol/decode.obj" "../driverlib_empty_project_ccs.cmd" "C:/ti/msp430/MSPWare_3_30_00_18/driverlib/driverlib/MSP432P4xx/ccs/msp432p4xx_driverlib.lib" -llibc.a 
