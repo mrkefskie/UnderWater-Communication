@@ -57,7 +57,7 @@ int main(void)
 	char input[100] = "Test";
 	printf("\n\n\n\nSTART CODE WITH THIS INPUT: %s\nBAUDRATE: %i\n\n", input, OUTPUT_BAUDRATE); // Print the input string and baudrate
 
-	uint8_t* dataToSend = fillDataArray(input); // Convert data to base2
+	uint8_t* dataToSend = fillDataArray(input, 0x02); // Convert data to base2
 	
 	unsigned int time = (1000 / OUTPUT_BAUDRATE) * dataLength;
 

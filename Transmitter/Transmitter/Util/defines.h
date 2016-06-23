@@ -34,6 +34,7 @@
 #define STATUS_LED			DDB5	// Status LED
 
 #define OUTPUT_BAUDRATE		500		// Baudrate for the data
+#define OWN_ADDRESS			0x01	// The address of the device (CAN BE ANYTHING BETWEEN 0X01 AND 0XFF)
 #define OUTPUT_PIN			DDB0	// Pin that will select the frequency
 
 #define DELAY_US			1000000 / OUTPUT_BAUDRATE

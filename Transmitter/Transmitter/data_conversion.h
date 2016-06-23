@@ -29,7 +29,7 @@ int dataLength;
  * @return The array of integers which can be send.
  *
 */
-uint8_t* fillDataArray(char data[100]);
+uint8_t* fillDataArray(char data[100], uint8_t receivce_address);
 
 /**
  * convertToData

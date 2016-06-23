@@ -1,7 +1,7 @@
 /*
  * data_conversion.h
  *
- * Created: 14-6-2016 13:07:51
+ * Created: 14-6-2016 10:59:06
  *  Author: Kevin Slagmolen
  */ 
 
@@ -29,7 +29,7 @@ int dataLength;
  * @return The array of integers which can be send.
  *
 */
-uint8_t* fillDataArray(char data[100]);
+uint8_t* fillDataArray(char data[100], uint8_t receivce_address);
 
 /**
  * convertToData

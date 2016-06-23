@@ -19,7 +19,7 @@
  * @return The array of integers which can be send.
  *
 */
-uint8_t* fillDataArray(char data[100])
+uint8_t* fillDataArray(char data[100], uint8_t receivce_address)
 {
     // Reset some stuff and initialize some variables
     dataLength = 0;
@@ -27,13 +27,33 @@ uint8_t* fillDataArray(char data[100])
     uint8_t ret[800]; // The return variable
     uint8_t data_num[100]; // The int representation of the data
 
+	// Add start byte
 	for (i = 0; i < 8; i++)
 	{
-		ret[dataLength] = 1;
-		dataLength++;
+		ret[dataLength++] = 1;
 	}
 
-    // Convert the chars to ints
+	// Add own address
+	ret[dataLength++] = (OWN_ADDRESS & 0b00000001);
+	ret[dataLength++] = (OWN_ADDRESS & 0b00000010) >> 1;
+	ret[dataLength++] = (OWN_ADDRESS & 0b00000100) >> 2;
+	ret[dataLength++] = (OWN_ADDRESS & 0b00001000) >> 3;
+	ret[dataLength++] = (OWN_ADDRESS & 0b00010000) >> 4;
+	ret[dataLength++] = (OWN_ADDRESS & 0b00100000) >> 5;
+	ret[dataLength++] = (OWN_ADDRESS & 0b01000000) >> 6;
+	ret[dataLength++] = (OWN_ADDRESS & 0b10000000) >> 7;
+
+	// Add receiving address
+	ret[dataLength++] = (receivce_address & 0b00000001);
+	ret[dataLength++] = (receivce_address & 0b00000010) >> 1;
+	ret[dataLength++] = (receivce_address & 0b00000100) >> 2;
+	ret[dataLength++] = (receivce_address & 0b00001000) >> 3;
+	ret[dataLength++] = (receivce_address & 0b00010000) >> 4;
+	ret[dataLength++] = (receivce_address & 0b00100000) >> 5;
+	ret[dataLength++] = (receivce_address & 0b01000000) >> 6;
+	ret[dataLength++] = (receivce_address & 0b10000000) >> 7;
+
+    // Convert the chars to int's
     for (i = 0; i < strlen(data); i++)
     {
         data_num[i] = (uint8_t)data[i];
@@ -136,10 +156,20 @@ char* convertToData(uint8_t bits[800], int length)
             printf("\nchar %c\nTotal %i\n", tmp, total);
             #endif // DEBUG
 
-            ret[total] = tmp; // Store the temp value in the return value
-            total++; // Add one to the total
-            tmp = 0b00000000; // Reset the temp value
-        }
+			if (tmp != 0b11111111)
+			{
+				if (total == 1)
+				{
+					if (tmp != OWN_ADDRESS)
+					{
+						return NULL;
+					}
+				}
+				ret[total] = tmp; // Store the temp value in the return value
+				total++; // Add one to the total
+				tmp = 0b00000000; // Reset the temp value
+			}
+		}
     }
 
     // Loop through all the chars

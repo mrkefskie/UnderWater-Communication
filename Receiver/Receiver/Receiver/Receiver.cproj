@@ -108,9 +108,27 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="data_conversion.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="data_conversion.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Util\defines.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Util\USART.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Util\USART.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Util" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

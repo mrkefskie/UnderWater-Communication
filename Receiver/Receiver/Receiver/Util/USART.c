@@ -6,12 +6,13 @@
  */ 
 
 #include "USART.h"
+#include "defines.h"
 
 void USART0Init()
 {
 	// Set baud rate
-	UBRR0H = (uint8_t)(UBBR_BAUDRATE >> 8);
-	UBRR0L = (uint8_t)UBBR_BAUDRATE;
+	UBRR0H = (uint8_t)(UBRR_BAUDRATE >> 8);
+	UBRR0L = (uint8_t)UBRR_BAUDRATE;
 
 	// Enable transmission
 	UCSR0B |= (1 << TXEN0);

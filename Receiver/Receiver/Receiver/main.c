@@ -69,14 +69,18 @@ int main(void)
 					if ((i + 1) % 8 == 0) printf(" ");
 				}
 
-				char received = convertToData(receivedData, counter); // Convert base2 to data
+				char* received = convertToData(receivedData, counter); // Convert base2 to data
 
-				if (received[0] != 0xFF) // If the first byte is not equal to 255 (0xFF)
+				if (received != NULL)
 				{
-					printf("Error detected...\n");
+					if (received[0] != 0xFF) // If the first byte is not equal to 255 (0xFF)
+					{
+						printf("Error detected...\n");
+					}
+					printf("Received data: %s\n\n", received);
 				}
-				printf("Received data: %s\n\n", received);
-
+				else
+					printf("Not for me\n");
 				// Reset some variables
 				counter = 0;
 				receiving = 0;
