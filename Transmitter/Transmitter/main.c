@@ -73,16 +73,21 @@ int main(void)
 
     while (1) 
     {
-		sendPing();
-		_delay_ms(2000); // Wait for 2 seconds
+		//printf("Send ping\n");
+		//sendPing();
+
+		printf("Send data\n");
+		sendData(dataToSend);
+
+		_delay_ms(1000); // Wait for 1 seconds
     }
 }
 
 void sendPing()
 {
-	PORTB ^= (1 << OUTPUT_PIN);
+	PORTB |= (1 << OUTPUT_PIN);
 	_delay_us(DELAY_US);
-	PORTB ^= (1 << OUTPUT_PIN);
+	PORTB &= ~(1 << OUTPUT_PIN);
 	_delay_us(DELAY_US);
 }
 

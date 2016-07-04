@@ -27,7 +27,7 @@
 /* END I2C DEFINES */
 
 #define OUTPUT_BAUDRATE	500		// Baudrate for the data
-#define OWN_ADDRESS		0x02	// The address of the device (CAN BE ANYTHING BETWEEN 0X01 AND 0XFF)
+#define OWN_ADDRESS		0x40	// The address of the device (CAN BE ANYTHING BETWEEN 0X01 AND 0XFF)
 
 #define DELAY_MS		1000 / OUTPUT_BAUDRATE
 #define DELAY_US		1000000 / OUTPUT_BAUDRATE

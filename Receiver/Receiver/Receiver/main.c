@@ -60,8 +60,9 @@ int main(void)
 
 			if (((counter % 8) == 0) && zeroStreak >= 8)  // If the counter is dividable by 8 and the zeroStreak is bigger or equal to 8
 			{
-				printf("\n\nStop Byte detected, stopped receiving.\n\n");
+				printf("\nStop Byte detected, stopped receiving.");
 
+				printf("\n\n");
 				for (int i = 0; i < counter; i++) // Loop through all the data
 				{
 					printf("%i", receivedData[i]);
@@ -81,6 +82,7 @@ int main(void)
 				}
 				else
 					printf("Not for me\n");
+
 				// Reset some variables
 				counter = 0;
 				receiving = 0;
@@ -88,7 +90,7 @@ int main(void)
 				sei(); // Turn on interrupts again
 			}
 		}
-    }
+	}
 }
 
 ISR(PCINT0_vect)

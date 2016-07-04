@@ -162,7 +162,8 @@ char* convertToData(uint8_t bits[800], int length)
 				{
 					if (tmp != OWN_ADDRESS)
 					{
-					break;
+						printf("Not for me\n\n");
+						//break;
 						//return NULL;
 					}
 				}
@@ -190,13 +191,14 @@ char* convertToData(uint8_t bits[800], int length)
 
     if (checksum == 0)
     {
+		ret[0] = 0xFF;
         #ifdef DEBUG // Debugging
         printf("No errors.\n");
         #endif // DEBUG
     }
     else
     {
-        ret[0] = -1;
+        ret[0] = 0x00;
         #ifdef DEBUG // Debugging
         printf("Error detected.\n");
         #endif // DEBUG

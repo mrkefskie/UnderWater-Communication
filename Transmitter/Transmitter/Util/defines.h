@@ -15,7 +15,7 @@
 #define F_CPU				16000000UL
 
 // START USART
-#define USART_BAUD			921600
+#define USART_BAUD			250000
 #define UBBR_BAUDRATE		(((F_CPU / (USART_BAUD * 16UL))) - 1)
 // END USART
 
@@ -35,7 +35,7 @@
 
 #define OUTPUT_BAUDRATE		500		// Baudrate for the data
 #define OWN_ADDRESS			0x01	// The address of the device (CAN BE ANYTHING BETWEEN 0X01 AND 0XFF)
-#define OUTPUT_PIN			DDB0	// Pin that will select the frequency
+#define OUTPUT_PIN			DDB2	// Pin that will select the frequency
 
 #define DELAY_US			1000000 / OUTPUT_BAUDRATE
 
